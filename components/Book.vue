@@ -1,16 +1,17 @@
 <template>
   <div
-    class="rounded-lg overflow-hidden shadow-lg relative h-[300px] w-[180px] group hover:scale-105 transition-transform duration-300"
+    class="rounded-lg overflow-hidden shadow-lg relative h-[300px] w-[180px] transition-transform duration-300"
+    :class="interactive_classes"
   >
     <div
-      v-for="i in [0, 1, 2, 3, 4]"
+      v-for="i in [0, 1, 2]"
       class="absolute top-0 w-full bg-[#BFAD9E] rounded-lg shadow shadow-stone-800/30"
       :style="{
         height: `${100 - i}%`,
       }"
     ></div>
     <div
-      class="absolute top-0 w-full h-[95%] rounded-lg shadow shadow-stone-800/30 overflow-hidden"
+      class="absolute top-0 w-full h-[97%] rounded-lg shadow shadow-stone-800/30 overflow-hidden"
     >
       <img
         :src="src"
@@ -27,7 +28,13 @@
 <script setup lang="ts">
 interface Props {
   src: string;
+  interactive?: boolean;
 }
 
-defineProps<Props>();
+const props = defineProps<Props>();
+
+const interactive_classes = computed(() => ({
+  group: props.interactive,
+  "hover:scale-105": props.interactive,
+}));
 </script>
