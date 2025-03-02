@@ -1,6 +1,6 @@
 <template>
   <div
-    class="rounded-lg overflow-hidden shadow-lg relative h-[300px] w-[180px] transition-transform duration-300"
+    class="rounded-lg overflow-hidden shadow-lg relative aspect-[3/5] transition-transform duration-300"
     :class="interactive_classes"
   >
     <div
