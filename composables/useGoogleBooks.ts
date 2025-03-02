@@ -11,8 +11,10 @@ export const useGoogleBooks = () => {
     const data = await response.json();
 
     if (data.error) return undefined;
-    const images = data.volumeInfo.imageLinks;
-    const image = images.medium ?? images.small ?? images.thumbnail;
+
+    // This URL gives higher resolution images than the image links returned by the API
+    const image = `https://books.google.com/books/publisher/content/images/frontcover/${book_id}?fife=w400-h600&source=gbs_ap`;
+
     const book: Book = {
       id: book_id,
       title: data.volumeInfo.title,

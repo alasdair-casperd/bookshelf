@@ -2,11 +2,11 @@
 export const default_books = [
   "xbIbEAAAQBAJ",
   "4OJyDwAAQBAJ",
-  "L2BtQgAACAAJ",
+  "JAzxznMKiq4C",
   "j1y9DwAAQBAJ",
   "bkiZDwAAQBAJ",
-  "kd1XlWVAIWQC",
   "uW_8EAAAQBAJ",
-  "LlSwDgAAQBAJ",
-  "pD6arNyKyi8C",
+  "4E9bDwAAQBAJ",
+  "KsyZEAAAQBAJ",
+  "MDksDwAAQBAJ",
 ];
