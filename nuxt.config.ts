@@ -14,4 +14,15 @@ export default defineNuxtConfig({
     },
   ],
   modules: ["@nuxt/icon", "@nuxt/fonts"],
+  runtimeConfig: {
+    public: {
+      firebaseApiKey: "",
+      firebaseAuthDomain: "",
+      firebaseProjectId: "",
+      firebaseStorageBucket: "",
+      firebaseMessagingSenderId: "",
+      firebaseAppId: "",
+    },
+  },
+  ssr: false,
 });
