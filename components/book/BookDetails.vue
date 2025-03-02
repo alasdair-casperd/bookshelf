@@ -13,7 +13,7 @@
       </div>
     </div>
     <div class="h-[400px] flex flex-row gap-8">
-      <Book :src="default_books[1]" class="h-full" />
+      <Book :book="get(default_books[0])" class="h-full" />
       <div class="flex flex-col grow">
         <div class="bg-white rounded-lg px-4 grid divide-y divide-slate-200">
           <div v-for="item in data" class="flex flex-row gap-4 py-3">
@@ -48,7 +48,9 @@
 
 <script setup lang="ts">
 import { default_books } from "~/data/default-books";
+import type { Book } from "~/types/Book";
 const { hide } = useBookFlyout();
+const { get } = useBookCache();
 
 const data = [
   {

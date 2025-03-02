@@ -5,9 +5,9 @@
       <div class="overflow-x-scroll flex flex-row -mx-12">
         <div class="flex flex-row gap-12 py-6 px-12">
           <Book
-            v-for="book in default_books.sort((a, b) => Math.random())"
+            v-for="book in books"
             interactive
-            :src="book"
+            :book="book"
             class="h-[250px]"
           />
         </div>
@@ -18,6 +18,7 @@
 
 <script setup lang="ts">
 import { default_books } from "~/data/default-books";
+const { get } = useBookCache();
 
 const categories = [
   "Your Next Read",
@@ -26,4 +27,6 @@ const categories = [
   "Fantasy",
   "Mystery",
 ];
+
+const books = default_books.map((id) => get(id));
 </script>

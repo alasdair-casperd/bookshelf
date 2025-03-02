@@ -16,12 +16,16 @@ export default defineNuxtConfig({
   modules: ["@nuxt/icon", "@nuxt/fonts"],
   runtimeConfig: {
     public: {
+      // Firebase
       firebaseApiKey: "",
       firebaseAuthDomain: "",
       firebaseProjectId: "",
       firebaseStorageBucket: "",
       firebaseMessagingSenderId: "",
       firebaseAppId: "",
+
+      // Google Books
+      googleBooksApiKey: "AIzaSyBUJ-vbicxwbRWH2GVAFOSY9sys-5YSTco", // Overridden by unrestricted key in development
     },
   },
   ssr: false,

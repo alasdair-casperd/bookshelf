@@ -15,9 +15,9 @@
       class="absolute top-0 w-full h-[97%] rounded-lg shadow shadow-stone-800/30 overflow-hidden"
     >
       <img
-        :src="src"
+        :src="book.value?.image"
         alt="Book"
-        class="absolute w-full h-full rounded-lg shadow shadow-stone-800/30 object-cover"
+        class="absolute w-full h-full rounded-lg shadow shadow-stone-800/30 object-cover bg-white"
       />
       <div
         class="absolute left-0 h-full bg-gradient-to-r from-white/50 to-transparent w-6 group-hover:w-12 transition-all duration-400"
@@ -27,10 +27,12 @@
 </template>
 
 <script setup lang="ts">
+import type { Book } from "~/types/Book";
+
 const { show } = useBookFlyout();
 
 interface Props {
-  src: string;
+  book: Ref<Book | undefined>;
   interactive?: boolean;
 }
 
