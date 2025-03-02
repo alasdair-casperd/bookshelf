@@ -1,1 +1,11 @@
 @import "tailwindcss";
+
+/* Fonts */
+body {
+  font-family: "Host Grotesk", serif;
+}
+
+/* Colors */
+@theme {
+  --color-accent: oklch(61.22% 0.1121 285.63);
+}
