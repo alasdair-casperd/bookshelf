@@ -1,8 +1,10 @@
-const current_book = ref<string | undefined>(undefined);
+import type { Book } from "~/types/Book";
+
+const current_book = ref<Book | undefined>(undefined);
 
 export const useBookFlyout = () => {
-  const show = (book_id: string) => {
-    current_book.value = book_id;
+  const show = async (book_id: string) => {
+    current_book.value = await useBookCache().get(book_id);
   };
 
   const hide = () => {

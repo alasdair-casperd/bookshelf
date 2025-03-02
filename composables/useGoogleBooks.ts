@@ -24,6 +24,10 @@ export const useGoogleBooks = () => {
       publishedDate: data.volumeInfo.publishedDate,
       description: data.volumeInfo.description,
       image: image,
+      isbn: data.volumeInfo.industryIdentifiers?.find(
+        (identifier: any) => identifier.type === "ISBN_13"
+      )?.identifier,
+      page_count: data.volumeInfo.pageCount,
     };
 
     return book;

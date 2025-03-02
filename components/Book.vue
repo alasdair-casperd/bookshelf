@@ -15,7 +15,7 @@
       class="absolute top-0 w-full h-[97%] rounded-lg shadow shadow-stone-800/30 overflow-hidden"
     >
       <img
-        :src="book.value?.image"
+        :src="book.image"
         alt="Book"
         class="absolute w-full h-full rounded-lg shadow shadow-stone-800/30 object-cover bg-white"
       />
@@ -32,7 +32,7 @@ import type { Book } from "~/types/Book";
 const { show } = useBookFlyout();
 
 interface Props {
-  book: Ref<Book | undefined>;
+  book: Book;
   interactive?: boolean;
 }
 
@@ -45,6 +45,6 @@ const interactive_classes = computed(() => ({
 }));
 
 const onClick = () => {
-  if (props.interactive) show("work-in-progress");
+  if (props.interactive) show(props.book.id);
 };
 </script>

@@ -7,4 +7,6 @@ export type Book = {
   publishedDate?: string;
   description?: string;
   image?: string;
+  isbn?: string;
+  page_count?: number;
 };

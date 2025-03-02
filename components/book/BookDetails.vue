@@ -1,9 +1,11 @@
 <template>
-  <div class="p-12">
+  <div v-if="current_book" class="p-12">
     <div class="mb-12 flex flex-row justify-between items-start">
       <div>
-        <h1 class="text-3xl">Small Things Like These</h1>
-        <div class="text-slate-600 text-xl">Claire Keegan</div>
+        <h1 class="text-3xl">{{ current_book.title }}</h1>
+        <div v-if="current_book" class="text-slate-600 text-xl">
+          {{ current_book.authors?.join(", ") }}
+        </div>
       </div>
       <div
         @click="hide"
@@ -13,7 +15,7 @@
       </div>
     </div>
     <div class="h-[400px] flex flex-row gap-8">
-      <Book :book="get(default_books[0])" class="h-full" />
+      <Book :book="current_book" class="h-full" />
       <div class="flex flex-col grow">
         <div class="bg-white rounded-lg px-4 grid divide-y divide-slate-200">
           <div v-for="item in data" class="flex flex-row gap-4 py-3">
@@ -27,55 +29,33 @@
         </div>
       </div>
     </div>
-    <div class="my-12">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. A, officiis?
-      Nobis non nesciunt corrupti molestiae quaerat eos dignissimos, facilis
-      magnam perferendis blanditiis dolores magni quis tempora sapiente incidunt
-      placeat doloremque. Lorem ipsum dolor sit amet consectetur adipisicing
-      elit. A, officiis? Nobis non nesciunt corrupti molestiae quaerat eos
-      dignissimos, facilis magnam perferendis blanditiis dolores magni quis
-      tempora sapiente incidunt placeat doloremque. Lorem ipsum dolor sit amet
-      consectetur adipisicing elit. A, officiis? Nobis non nesciunt corrupti
-      molestiae quaerat eos dignissimos, facilis magnam perferendis blanditiis
-      dolores magni quis tempora sapiente incidunt placeat doloremque. Lorem
-      ipsum dolor sit amet consectetur adipisicing elit. A, officiis? Nobis non
-      nesciunt corrupti molestiae quaerat eos dignissimos, facilis magnam
-      perferendis blanditiis dolores magni quis tempora sapiente incidunt
-      placeat doloremque.
-    </div>
+    <div class="my-12">{{ current_book.description }}</div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { default_books } from "~/data/default-books";
-import type { Book } from "~/types/Book";
-const { hide } = useBookFlyout();
-const { get } = useBookCache();
+const { current_book, hide } = useBookFlyout();
 
 const data = [
   {
     label: "ISBN",
-    value: "9780735243361, 0735243360",
+    value: current_book.value?.isbn,
   },
   {
     label: "Author",
-    value: "Claire Keegan",
+    value: current_book.value?.authors?.join(", "),
   },
   {
     label: "Published",
-    value: "25 August 2022",
+    value: current_book.value?.publishedDate,
   },
   {
     label: "Publisher",
-    value: "Penguin Books",
+    value: current_book.value?.publisher,
   },
   {
     label: "Page Count",
-    value: "540",
-  },
-  {
-    label: "Language",
-    value: "English",
+    value: current_book.value?.page_count,
   },
 ];
 </script>
