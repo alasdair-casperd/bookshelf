@@ -1,0 +1,19 @@
+meta {
+  name: Get Book Details
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://www.googleapis.com/books/v1/volumes/:book-id?key={{google_books_api_key}}
+  body: none
+  auth: none
+}
+
+params:query {
+  key: {{google_books_api_key}}
+}
+
+params:path {
+  book-id: xbIbEAAAQBAJ
+}

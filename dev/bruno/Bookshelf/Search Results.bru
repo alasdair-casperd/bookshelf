@@ -1,0 +1,16 @@
+meta {
+  name: Search Results
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://www.googleapis.com/books/v1/volumes?q=small_things_like_these&key={{google_books_api_key}}
+  body: none
+  auth: none
+}
+
+params:query {
+  q: small_things_like_these
+  key: {{google_books_api_key}}
+}
