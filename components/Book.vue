@@ -2,6 +2,7 @@
   <div
     class="rounded-lg overflow-hidden shadow-lg relative aspect-[3/5] transition-transform duration-300"
     :class="interactive_classes"
+    @click="onClick"
   >
     <div
       v-for="i in [0, 1, 2]"
@@ -26,6 +27,8 @@
 </template>
 
 <script setup lang="ts">
+const { show } = useBookFlyout();
+
 interface Props {
   src: string;
   interactive?: boolean;
@@ -36,5 +39,10 @@ const props = defineProps<Props>();
 const interactive_classes = computed(() => ({
   group: props.interactive,
   "hover:scale-105": props.interactive,
+  "cursor-pointer": props.interactive,
 }));
+
+const onClick = () => {
+  if (props.interactive) show("work-in-progress");
+};
 </script>
