@@ -9,3 +9,19 @@ body {
 @theme {
   --color-accent: oklch(61.22% 0.1121 285.63);
 }
+
+/* Forms */
+
+form {
+  label {
+    @apply block text-xs text-slate-600 p-2;
+  }
+
+  input {
+    @apply bg-slate-200 block p-3 rounded-lg w-full text-slate-800;
+  }
+
+  button {
+    @apply bg-accent block p-3 rounded-lg font-medium text-white w-full;
+  }
+}
