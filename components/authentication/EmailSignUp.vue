@@ -30,10 +30,13 @@
         v-model="password"
         type="password"
         id="password"
-        placeholder="Your new password..."
+        placeholder="A strong password..."
       />
     </div>
-    <button type="submit" class="mt-6">Create Account</button>
+    <AuthenticationSubmitButton
+      :loading="loading"
+      text="Sign In"
+    ></AuthenticationSubmitButton>
     <div class="text-center mt-4 text-accent">
       Already have an account?
       <span @click="view = 'sign-in'" class="font-bold cursor-pointer"
@@ -57,14 +60,18 @@ const email = ref("");
 const password = ref("");
 const username = ref("");
 const error_message = ref<string | undefined>();
+const loading = ref(false);
 
 // Methods
 const onSubmit = async () => {
+  // TODO: Store username against the user
+  loading.value = true;
   const result = await createUserWithEmailAndPassword(
     email.value,
     password.value
   );
   if (result.error) error_message.value = result.error;
   else navigateTo("/");
+  loading.value = false;
 };
 </script>

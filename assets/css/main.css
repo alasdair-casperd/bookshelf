@@ -18,10 +18,10 @@ form {
   }
 
   input {
-    @apply bg-slate-200 block p-3 rounded-lg w-full text-slate-800;
+    @apply bg-slate-200/70 block p-3 rounded-lg w-full text-slate-800 border border-slate-300;
   }
 
   button {
-    @apply bg-accent block p-3 rounded-lg font-medium text-white w-full;
+    @apply bg-accent block p-3 rounded-lg font-medium text-white w-full cursor-pointer;
   }
 }
