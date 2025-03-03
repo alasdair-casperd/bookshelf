@@ -16,7 +16,7 @@
     >
       <img
         :src="book.image"
-        alt="Book"
+        :alt="book.title"
         class="absolute w-full h-full rounded-lg shadow shadow-stone-800/30 object-cover bg-white"
       />
       <div

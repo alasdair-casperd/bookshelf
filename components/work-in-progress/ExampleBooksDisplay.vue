@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import { default_books } from "~/data/default-books";
+import { default_book_ids } from "~/data/default-books";
 import type { Book } from "~/types/Book";
 const { get } = useBookCache();
 
@@ -31,7 +31,7 @@ const categories = [
 
 const books = ref<Book[]>([]);
 const fetchBooks = async () => {
-  default_books.forEach(async (id) => {
+  default_book_ids.forEach(async (id) => {
     const book = await get(id);
     if (book) books.value.push(book);
   });
