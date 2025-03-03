@@ -5,7 +5,6 @@ const cache = ref<Record<string, Book>>({});
 export const useBookCache = () => {
   const get = async (book_id: string) => {
     if (cache.value[book_id]) {
-      console.log(cache.value[book_id].image);
       return cache.value[book_id];
     }
 
