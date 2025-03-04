@@ -14,6 +14,7 @@ export const default_book_ids = [
   "fasaphktJ8IC",
   "x3tgDwAAQBAJ",
   "WbtvDgAAQBAJ",
+  "caumEAAAQBAJ",
 ];
 
 const default_book_images = [

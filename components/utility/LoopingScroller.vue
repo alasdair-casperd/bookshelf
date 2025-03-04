@@ -1,7 +1,7 @@
 <template>
   <div class="overflow-hidden">
     <div
-      class="flex flex-col gap-[48px]"
+      class="flex flex-col"
       :style="{
         gap: `${props.gap_size}px`,
       }"
