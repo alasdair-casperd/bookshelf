@@ -7,5 +7,8 @@
     <BookFlyout>
       <BookDetails></BookDetails>
     </BookFlyout>
+    <Modal id="account" title="Your Account">
+      <Account />
+    </Modal>
   </div>
 </template>

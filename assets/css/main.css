@@ -22,6 +22,10 @@ form {
   }
 
   button {
-    @apply bg-accent block p-3 rounded-lg font-medium text-white w-full cursor-pointer;
+    @apply bg-accent block p-3 rounded-lg font-medium text-white w-full cursor-pointer text-center;
   }
+}
+
+.button {
+  @apply bg-accent block p-3 rounded-lg font-medium text-white w-full cursor-pointer text-center;
 }

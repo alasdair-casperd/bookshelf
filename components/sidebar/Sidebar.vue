@@ -14,7 +14,11 @@
       </div>
     </div>
     <div class="mt-12">
-      <SidebarItem icon="tabler:user" text="Account" />
+      <SidebarItem
+        @click="showAccountModal"
+        icon="tabler:user"
+        text="Account"
+      />
       <SidebarItem
         @click="signOut"
         icon="tabler:square-rounded-arrow-right"
@@ -40,4 +44,6 @@ const selected_item = computed(() => {
   const item = items.slice(1).find((item) => router.path.startsWith(item.path));
   return item ?? items[0];
 });
+
+const { show: showAccountModal } = useModal("account");
 </script>
