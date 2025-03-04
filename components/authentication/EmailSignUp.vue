@@ -13,6 +13,7 @@
         type="username"
         id="text"
         placeholder="Your new username..."
+        required
       />
     </div>
     <div>
@@ -22,6 +23,7 @@
         type="email"
         id="email"
         placeholder="Your email..."
+        required
       />
     </div>
     <div>
@@ -31,6 +33,7 @@
         type="password"
         id="password"
         placeholder="A strong password..."
+        required
       />
     </div>
     <AuthenticationSubmitButton
@@ -68,7 +71,8 @@ const onSubmit = async () => {
   loading.value = true;
   const result = await createUserWithEmailAndPassword(
     email.value,
-    password.value
+    password.value,
+    username.value
   );
   if (result.error) error_message.value = result.error;
   else navigateTo("/");

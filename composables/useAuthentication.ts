@@ -3,6 +3,7 @@ import {
   createUserWithEmailAndPassword as firebaseCreateUserWithEmailAndPassword,
   type Auth,
 } from "firebase/auth";
+import { useFirestore } from "./useFirestore";
 
 export const useAuthentication = () => {
   /**
@@ -30,10 +31,19 @@ export const useAuthentication = () => {
    */
   const createUserWithEmailAndPassword = async (
     email: string,
-    password: string
+    password: string,
+    username: string
   ) => {
     try {
-      await firebaseCreateUserWithEmailAndPassword(auth, email, password);
+      // Create a new user in Firebase Authentication.
+      const user = await firebaseCreateUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
+      // Create a new user in Firestore.
+      useFirestore().createUser(username, user.user);
       return {};
     } catch (error: any) {
       return { error: error.message ?? "" };
