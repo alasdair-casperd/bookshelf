@@ -6,11 +6,6 @@
       class="absolute h-full w-full bg-black/50"
     ></div>
   </Transition>
-  <div
-    v-if="visible"
-    @click="hide"
-    class="absolute h-full w-full bg-black/50"
-  ></div>
   <Transition class="slide">
     <div
       v-if="visible"
@@ -21,7 +16,7 @@
   </Transition>
 </template>
 
-<style>
+<style scoped>
 .fade.v-enter-active,
 .fade.v-leave-active {
   transition: opacity 0.2s ease;
