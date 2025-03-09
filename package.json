@@ -13,8 +13,10 @@
     "@nuxt/fonts": "^0.10.3",
     "@nuxt/icon": "^1.10.3",
     "@tailwindcss/vite": "^4.0.9",
+    "@types/uuid": "^10.0.0",
     "firebase": "^11.4.0",
     "nuxt": "^3.14.1592",
+    "uuid": "^11.1.0",
     "vue": "latest",
     "vue-router": "latest"
   },

@@ -1,3 +1,6 @@
+/**
+ * A type representing a book.
+ */
 export type Book = {
   id: string;
   title: string;
